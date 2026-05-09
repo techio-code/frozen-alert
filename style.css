@@ -115,8 +115,8 @@ ul { list-style: none; }
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(96px, 42vw, 160px);
-  letter-spacing: -0.04em;
+  font-size: clamp(60px, 22vw, 160px);
+  letter-spacing: -0.06em;
   line-height: 0.88;
   color: var(--status-color);
   display: block;
@@ -613,6 +613,6 @@ ul { list-style: none; }
 @media (max-width: 375px) {
   .app-main { padding: 0 20px; }
   .app-header { padding: 24px 20px 16px; }
-  #judgment-display { font-size: clamp(80px, 40vw, 120px); }
+  #judgment-display { font-size: clamp(60px, 21vw, 80px); }
   .metric-row-value { font-size: 22px; }
 }
