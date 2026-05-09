@@ -1,0 +1,15 @@
+{
+  "date": "2026-05-09",
+  "fetched_at": "2026-05-09T20:14:36.401318+09:00",
+  "judgment": "FROZEN",
+  "vix": 17.190000534057617,
+  "nikkei_vi": 34.16,
+  "usdjpy": 156.62100219726562,
+  "jgb_10y": null,
+  "nikkei225": 62714,
+  "vix_term": "CONTANGO",
+  "errors": [
+    "jgb_10y: MOF CSV 取得失敗"
+  ],
+  "is_sample": false
+}

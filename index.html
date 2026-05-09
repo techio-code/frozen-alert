@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja" data-status="frozen">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FrozenAlert — 今日、株を買っていい？</title>
+  <meta name="description" content="個人投資家が毎朝10秒で「今日は株を買っていいか」を確認できる市場判定シート。VIX・日経VI・ドル円・JGB10yをもとにFROZEN/WARNING/NORMALを自動判定し、今日すべき行動をお知らせ。" />
+
+  <!-- OGP -->
+  <meta property="og:title" content="FrozenAlert — 今日、株を買っていい？" />
+  <meta property="og:description" content="今日の市場は FROZEN？ 毎朝8:45更新。VIX・日経VIで自動判定。今日すべき行動が分かる。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://techio-code.github.io/frozen-alert/ogp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts: Cormorant Garamond italic + JetBrains Mono + Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-status="frozen">
+  <div class="app-shell">
+
+    <!-- Header -->
+    <header class="app-header">
+      <span id="app-title">FROZENALERT</span>
+      <span id="update-time">07:32</span>
+    </header>
+
+    <main class="app-main">
+
+      <!-- Hero Section: 判定ワード + 答え + 理由 -->
+      <section class="section section--hero">
+        <span id="judgment-display" class="judgment-banner">FROZEN</span>
+        <span id="judgment-answer-text" class="judgment-answer-text">買えません</span>
+
+        <div class="hero-status-line">
+          <span class="hero-status-label">STATUS</span>
+          <span class="hero-status-sep">/</span>
+          <span class="hero-status-time" id="hero-update-time">07:32 更新</span>
+        </div>
+        <hr class="hero-divider" />
+        <p id="judgment-reason" class="judgment-reason">日経VI 34.16（閾値 27）、USD/JPY 156.62（閾値 155）が警戒水準を超過。新規購入を停止してください。</p>
+      </section>
+
+      <!-- Section 01: Metrics（縦リスト + 右寄せ数値） -->
+      <div class="section-marker">
+        <span>01 Metrics</span>
+      </div>
+      <section class="section section--metrics">
+        <div class="metric-row" data-metric="vix">
+          <div class="metric-row-label">
+            <span class="metric-status-dot dot-frozen" data-metric-status="vix"></span>
+            <span>VIX</span>
+          </div>
+          <span class="metric-row-value">17.19</span>
+        </div>
+        <div class="metric-row" data-metric="nikkei-vi">
+          <div class="metric-row-label">
+            <span class="metric-status-dot dot-frozen" data-metric-status="nikkei-vi"></span>
+            <span>日経VI</span>
+          </div>
+          <span class="metric-row-value">34.16</span>
+        </div>
+        <div class="metric-row" data-metric="usdjpy">
+          <div class="metric-row-label">
+            <span class="metric-status-dot dot-frozen" data-metric-status="usdjpy"></span>
+            <span>USD/JPY</span>
+          </div>
+          <span class="metric-row-value">156.62</span>
+        </div>
+        <div class="metric-row" data-metric="jgb10y">
+          <div class="metric-row-label">
+            <span class="metric-status-dot dot-normal" data-metric-status="jgb10y"></span>
+            <span>JGB10y</span>
+          </div>
+          <span class="metric-row-value">--.--%</span>
+        </div>
+        <button class="help-trigger" id="help-trigger-metrics" type="button">? 指標について</button>
+      </section>
+
+      <!-- Section 02: Actions -->
+      <div class="section-marker">
+        <span>02 Actions</span>
+      </div>
+      <section class="section section--actions">
+        <div class="action-section-title">今日すること</div>
+        <ul class="action-list" id="action-list" data-status="frozen">
+          <li class="action-item" data-action="1">新規購入は全て見送る</li>
+          <li class="action-item" data-action="2">保有中のポジションを点検する</li>
+          <li class="action-item" data-action="3">VIX が 25 を下回るまで待機</li>
+        </ul>
+      </section>
+
+      <!-- Section 03: History -->
+      <div class="section-marker">
+        <span>03 History</span>
+      </div>
+      <section class="section section--history">
+        <div id="history-summary" class="history-summary">
+          <span class="summary-frozen">FROZEN <span id="frozen-days">8</span></span>
+          <span class="summary-warning">WARNING <span id="warning-days">6</span></span>
+          <span class="summary-normal">NORMAL <span id="normal-days">16</span></span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="history-chart"></canvas>
+        </div>
+        <button class="help-trigger help-trigger--right" id="help-trigger-chart" type="button">? グラフについて</button>
+      </section>
+
+      <!-- Footer -->
+      <div class="section-marker section-marker--fin">
+        <span>FIN</span>
+      </div>
+      <footer class="app-footer">
+        <a href="https://note.com/techio_note" class="footer-link" target="_blank" rel="noopener">
+          お金を守るルールとは →
+        </a>
+        <div class="plan-banner">
+          <div class="plan-info">
+            <span class="plan-title">アラート通知</span>
+            <span class="plan-price">¥980/月</span>
+          </div>
+          <button class="plan-cta" disabled aria-disabled="true">詳細を見る</button>
+        </div>
+        <p class="footer-note">
+          本アプリは投資助言ではありません。判断はご自身の責任で。<br />
+          investor.md v5 準拠 · データ更新 毎朝 08:45 JST
+        </p>
+      </footer>
+
+    </main>
+
+    <!-- Error banner -->
+    <div class="error-banner" id="error-banner" style="display:none">
+      <span>データ取得失敗 — サンプルデータを表示しています</span>
+    </div>
+
+  </div><!-- .app-shell -->
+
+  <!-- Help Modal -->
+  <div class="help-modal-overlay" id="help-modal" role="dialog" aria-modal="true" aria-label="指標の読み方">
+    <div class="help-modal">
+      <div class="help-modal-header">
+        <span class="help-modal-title">指標の読み方</span>
+        <button class="help-modal-close" id="help-modal-close" type="button" aria-label="閉じる">×</button>
+      </div>
+      <div class="help-tabs" role="tablist">
+        <button class="help-tab active" data-tab="metrics" role="tab" aria-selected="true" type="button">指標の意味</button>
+        <button class="help-tab" data-tab="frozen-action" role="tab" aria-selected="false" type="button">FROZEN対応</button>
+        <button class="help-tab" data-tab="chart" role="tab" aria-selected="false" type="button">グラフ</button>
+      </div>
+      <div id="help-content-metrics" class="help-content" role="tabpanel">
+        <div class="help-section">
+          <div class="help-section-title">VIX（恐怖指数）</div>
+          <p>米国市場の不安度を示す指標。25 を超えると警戒ゾーンに入ります。30超は強い警戒水準です。</p>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">日経VI（国内恐怖指数）</div>
+          <p>日経平均のVIX版。27 を超えると警戒ゾーン。国内市場固有の不安心理を反映します。</p>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">ドル円（USD/JPY）</div>
+          <p>155 を超えると円安が進み、輸入コスト上昇で市場リスクが増す傾向があります。</p>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">JGB10y（長期金利）</div>
+          <p>日本の10年国債利回り。急騰すると株の売り圧力になります。1.5%超は注意水準です。</p>
+        </div>
+      </div>
+      <div id="help-content-frozen-action" class="help-content" hidden role="tabpanel">
+        <div class="help-section">
+          <div class="help-section-title">FROZEN になったらどうする？</div>
+          <p>FROZEN は「今は市場環境がリスクを高めている状態」を意味します。投資をやめるのではなく、「新規購入を一時停止する」判断をします。</p>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">具体的な行動</div>
+          <ol class="help-list">
+            <li>新規購入の発注をしない</li>
+            <li>保有中の銘柄の損切りラインを確認する</li>
+            <li>VIX が 25 を下回ったら再確認する</li>
+          </ol>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">FROZEN が解除される条件</div>
+          <p>VIX &lt; 25 かつ 日経VI &lt; 27 かつ USD/JPY &lt; 155<br />（全条件が同時に満たされた場合のみ）</p>
+        </div>
+      </div>
+      <div id="help-content-chart" class="help-content" hidden role="tabpanel">
+        <div class="help-section">
+          <div class="help-section-title">過去30日グラフの見方</div>
+          <p>各バーの色が日別の判定状態を表しています。</p>
+        </div>
+        <div class="help-section">
+          <div class="chart-legend-explain">
+            <div class="legend-row"><span class="legend-dot legend-dot--frozen"></span>青バー = FROZEN（新規購入を見送った日）</div>
+            <div class="legend-row"><span class="legend-dot legend-dot--warning"></span>橙バー = WARNING（慎重に動いた日）</div>
+            <div class="legend-row"><span class="legend-dot legend-dot--normal"></span>緑バー = NORMAL（通常判断できた日）</div>
+          </div>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">サマリの数字の見方</div>
+          <p>「FROZEN 8」= 過去30日のうち8日間は新規購入を見送る判断が正解だった期間です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

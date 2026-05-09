@@ -1,0 +1,242 @@
+[
+  {
+    "date": "2026-04-10",
+    "vix": 19.23,
+    "nikkei_vi": null,
+    "usdjpy": 159.11,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-11",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-04-12",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-04-13",
+    "vix": 19.12,
+    "nikkei_vi": null,
+    "usdjpy": 159.68,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-14",
+    "vix": 18.36,
+    "nikkei_vi": null,
+    "usdjpy": 159.21,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-15",
+    "vix": 18.17,
+    "nikkei_vi": null,
+    "usdjpy": 158.79,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-16",
+    "vix": 17.94,
+    "nikkei_vi": null,
+    "usdjpy": 158.81,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-17",
+    "vix": 17.48,
+    "nikkei_vi": null,
+    "usdjpy": 159.2,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-18",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-04-19",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-04-20",
+    "vix": 18.87,
+    "nikkei_vi": null,
+    "usdjpy": 159.16,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-21",
+    "vix": 19.5,
+    "nikkei_vi": null,
+    "usdjpy": 158.84,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-22",
+    "vix": 18.92,
+    "nikkei_vi": null,
+    "usdjpy": 159.37,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-23",
+    "vix": 19.31,
+    "nikkei_vi": null,
+    "usdjpy": 159.49,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-24",
+    "vix": 18.71,
+    "nikkei_vi": null,
+    "usdjpy": 159.75,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-25",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-04-26",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-04-27",
+    "vix": 18.02,
+    "nikkei_vi": null,
+    "usdjpy": 159.58,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-28",
+    "vix": 17.83,
+    "nikkei_vi": null,
+    "usdjpy": 159.36,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-29",
+    "vix": 18.81,
+    "nikkei_vi": null,
+    "usdjpy": 159.55,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-04-30",
+    "vix": 16.89,
+    "nikkei_vi": null,
+    "usdjpy": 160.18,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-01",
+    "vix": 16.99,
+    "nikkei_vi": null,
+    "usdjpy": 156.98,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-02",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-05-03",
+    "vix": null,
+    "nikkei_vi": null,
+    "usdjpy": null,
+    "jgb_10y": null,
+    "judgment": "NORMAL"
+  },
+  {
+    "date": "2026-05-04",
+    "vix": 18.29,
+    "nikkei_vi": null,
+    "usdjpy": 156.85,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-05",
+    "vix": 17.38,
+    "nikkei_vi": null,
+    "usdjpy": 157.19,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-06",
+    "vix": 17.39,
+    "nikkei_vi": null,
+    "usdjpy": 157.68,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-07",
+    "vix": 17.08,
+    "nikkei_vi": null,
+    "usdjpy": 156.51,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-08",
+    "vix": 17.19,
+    "nikkei_vi": null,
+    "usdjpy": 156.62,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-09",
+    "vix": 17.190000534057617,
+    "nikkei_vi": 34.16,
+    "usdjpy": 156.62100219726562,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  }
+]
