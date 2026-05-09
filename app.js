@@ -292,6 +292,8 @@ function renderMetrics(ind, judgment) {
   setMetric('nikkei-vi', vi  != null ? vi.toFixed(2)  : '--.-');
   setMetric('usdjpy',    jpy != null ? jpy.toFixed(2) : '---.-');
   setMetric('jgb10y',    jgb != null ? jgb.toFixed(3) + '%' : '-.--%');
+  const n225 = ind.nikkei225;
+  setMetric('nikkei225', n225 != null ? Number(n225).toLocaleString('ja-JP') : '--,---');
 }
 
 // ─────────────────────────────────────────────────────────────

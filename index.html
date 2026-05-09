@@ -63,7 +63,7 @@
         <div class="metric-row" data-metric="nikkei-vi">
           <div class="metric-row-label">
             <span class="metric-status-dot dot-frozen" data-metric-status="nikkei-vi"></span>
-            <span>日経VI</span>
+            <span>日経VI（ボラ指数）</span>
           </div>
           <span class="metric-row-value">34.16</span>
         </div>
@@ -80,6 +80,13 @@
             <span>JGB10y</span>
           </div>
           <span class="metric-row-value">--.--%</span>
+        </div>
+        <div class="metric-row" data-metric="nikkei225">
+          <div class="metric-row-label">
+            <span class="metric-status-dot dot-normal" data-metric-status="nikkei225"></span>
+            <span>Nikkei 225 <span class="metric-ref">参考</span></span>
+          </div>
+          <span class="metric-row-value">62,714</span>
         </div>
         <button class="help-trigger" id="help-trigger-metrics" type="button">? 指標について</button>
       </section>
@@ -171,6 +178,10 @@
         <div class="help-section">
           <div class="help-section-title">JGB10y（長期金利）</div>
           <p>日本の10年国債利回り。急騰すると株の売り圧力になります。1.5%超は注意水準です。</p>
+        </div>
+        <div class="help-section">
+          <div class="help-section-title">Nikkei 225（日経平均・参考）</div>
+          <p>日経平均株価そのもの。判定には使用せず、市場全体の動きを確認する参考指標として表示しています。日経VI（ボラ指数）とは別物です。</p>
         </div>
       </div>
       <div id="help-content-frozen-action" class="help-content" hidden role="tabpanel">
