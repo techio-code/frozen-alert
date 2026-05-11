@@ -1,13 +1,5 @@
 [
   {
-    "date": "2026-04-11",
-    "vix": null,
-    "nikkei_vi": null,
-    "usdjpy": null,
-    "jgb_10y": null,
-    "judgment": "NORMAL"
-  },
-  {
     "date": "2026-04-12",
     "vix": null,
     "nikkei_vi": null,
@@ -236,6 +228,14 @@
     "vix": 17.190000534057617,
     "nikkei_vi": 34.16,
     "usdjpy": 156.62100219726562,
+    "jgb_10y": null,
+    "judgment": "FROZEN"
+  },
+  {
+    "date": "2026-05-11",
+    "vix": 17.190000534057617,
+    "nikkei_vi": 34.16,
+    "usdjpy": 156.91400146484375,
     "jgb_10y": null,
     "judgment": "FROZEN"
   }
